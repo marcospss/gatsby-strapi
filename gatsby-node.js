@@ -32,6 +32,9 @@ exports.createPages = async ({ graphql, actions }) => {
       contents: allStrapiContents(filter: { status: { eq: true } }) {
         nodes {
           slug
+          category: category_id {
+            slug
+          }
         }
       }
     }
@@ -42,6 +45,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/content-template.tsx`),
       context: {
         slug: content.slug,
+        categorySlug: content.category.slug,
       },
     });
   });

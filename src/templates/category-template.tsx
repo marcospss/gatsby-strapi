@@ -1,6 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
@@ -54,7 +53,7 @@ const CategoryTemplate: React.FC<Props> = ({ data }) => {
 };
 
 export const query = graphql`
-  query getContentCategory($slug: String) {
+  query getContentCategory($slug: String!) {
     categoryBySlug: strapiCategories(slug: { eq: $slug }) {
       title
       description
@@ -64,6 +63,7 @@ export const query = graphql`
       id
       created_at(formatString: "MMMM Do, YYYY")
     }
+
     contentsByCategory: allStrapiContents(
       filter: {
         category_id: { slug: { eq: $slug }, status: { eq: true } }
