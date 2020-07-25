@@ -1,8 +1,10 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
-import Layout from '../components/Layout';
-import SEO from '../components/Seo';
+import { Container, TitleMain, Description } from 'css';
+import Layout from 'components/Layout';
+import SEO from 'components/Seo';
+import ListSimilar from 'components/ListSimilar';
 
 interface content {
   created_at: string;
@@ -25,28 +27,18 @@ type Props = {
 
 const CategoryTemplate: React.FC<Props> = ({ data }) => {
   const {
-    categoryBySlug: { title, metaDescription },
+    categoryBySlug: { title, description },
     contentsByCategory: { nodes: contents },
   } = data;
   return (
     <>
       <SEO title={title} />
       <Layout>
-        <h1>{title}</h1>
-        <p>{metaDescription}</p>
-        <hr />
-        {contents.map(content => {
-          return (
-            <div key={content.id}>
-              <h2>{content.title}</h2>
-              <p>{content.metaDescription}</p>
-              <p>{content.created_at}</p>
-              <p>
-                <Link to={`/${content.slug}`}>Read More</Link>
-              </p>
-            </div>
-          );
-        })}
+        <Container>
+          <TitleMain>{title}</TitleMain>
+          <Description>{description}</Description>
+          <ListSimilar data={contents} />
+        </Container>
       </Layout>
     </>
   );

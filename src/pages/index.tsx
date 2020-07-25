@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Link } from 'gatsby';
 
-import Layout from '../components/Layout';
-import SEO from '../components/Seo';
+import Layout from 'components/Layout';
+import SEO from 'components/Seo';
+import List from 'components/ListCategory';
 
 interface category {
   id: string;
@@ -29,19 +29,7 @@ const IndexPage: React.FC<Props> = ({ data }) => {
     <>
       <SEO title="Home" />
       <Layout>
-        <h1>Home</h1>
-        {categories.map(category => {
-          return (
-            <div key={category.id}>
-              <h2>{category.title}</h2>
-              <p>{category.metaDescription}</p>
-              <p>{category.created_at}</p>
-              <p>
-                <Link to={`/category/${category.slug}`}>Read More</Link>
-              </p>
-            </div>
-          );
-        })}
+        <List data={categories} />
       </Layout>
     </>
   );

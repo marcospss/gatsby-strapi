@@ -1,8 +1,16 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
+import {
+  Container,
+  TitleMain,
+  CreatedAt,
+  Description,
+  TitleSecondary,
+} from 'css';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
+import ListSimilar from 'components/ListSimilar';
 
 interface content {
   created_at: string;
@@ -46,28 +54,13 @@ const ContentTemplate: React.FC<Props> = ({ data }) => {
     <>
       <SEO title={title} />
       <Layout>
-        <h1>{title}</h1>
-        <p>{metaDescription}</p>
-        <hr />
-        <div key={id}>
-          <h2>{title}</h2>
-          <p>{metaDescription}</p>
-          <p>{created_at}</p>
-        </div>
-        <hr />
-        <h1>Similar Content</h1>
-        {similarContent.map(content => {
-          return (
-            <div key={content.id}>
-              <h2>{content.title}</h2>
-              <p>{content.metaDescription}</p>
-              <p>{content.created_at}</p>
-              <p>
-                <Link to={`/${content.slug}`}>Read More</Link>
-              </p>
-            </div>
-          );
-        })}
+        <Container>
+          <TitleMain>{title}</TitleMain>
+          <CreatedAt>{created_at}</CreatedAt>
+          <Description>{metaDescription}</Description>
+          <TitleSecondary>Similar Content</TitleSecondary>
+          <ListSimilar data={similarContent} />
+        </Container>
       </Layout>
     </>
   );
