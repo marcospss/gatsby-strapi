@@ -11,4 +11,4 @@ A starter New demonstrating what Gatsby/Strapi can do!.
 
 # Demo
 
-[Gatsby's Strapi New](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)
+[Gatsby's Strapi New](https://gatsby-strapi-news.netlify.app/)
