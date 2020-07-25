@@ -26,7 +26,7 @@ const ListSimilar: React.FC<Props> = ({ data }) => {
             <span>{content.created_at}</span>
             <p>{content.metaDescription}</p>
             <p>
-              <AniLink fade to={`/${content.slug}`}>
+              <AniLink fade to={`/${content.slug}`} title={content.title}>
                 Read More
               </AniLink>
             </p>

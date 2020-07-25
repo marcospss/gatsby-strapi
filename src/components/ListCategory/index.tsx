@@ -31,7 +31,11 @@ const ListCategory: React.FC<Props> = ({ data }) => {
               <Date>{category.created_at}</Date>
               <Description>{category.metaDescription}</Description>
               <LearnMore>
-                <AniLink fade to={`/category/${category.slug}`}>
+                <AniLink
+                  fade
+                  to={`/category/${category.slug}`}
+                  title={category.title}
+                >
                   Read More
                 </AniLink>
               </LearnMore>

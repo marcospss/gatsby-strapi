@@ -48,8 +48,8 @@ const HeaderGlobal: React.FC = () => (
       } = data;
       return (
         <Header>
-          <Logo title="Back to home">
-            <AniLink fade to={`/`}>
+          <Logo>
+            <AniLink fade to={`/`} title="Back to home">
               {title}
             </AniLink>
           </Logo>
