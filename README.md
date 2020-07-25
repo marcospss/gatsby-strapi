@@ -4,7 +4,11 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby's Strapi Portfolio
+  Gatsby's Strapi New
 </h1>
 
-A starter Portfolio demonstrating what Gatsby/Strapi can do!.
+A starter New demonstrating what Gatsby/Strapi can do!.
+
+# Demo
+
+[Gatsby's Strapi New](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)
