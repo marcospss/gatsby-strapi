@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { graphql, Link, StaticQuery } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import { Header, Logo, Nav, List, NavItem } from './styles';
 
@@ -48,16 +49,18 @@ const HeaderGlobal: React.FC = () => (
       return (
         <Header>
           <Logo title="Back to home">
-            <Link to={`/`}>{title}</Link>
+            <AniLink fade to={`/`}>
+              {title}
+            </AniLink>
           </Logo>
           <Nav>
             <List>
               {categories.map(category => {
                 return (
                   <NavItem key={category.id}>
-                    <Link to={`/category/${category.slug}`}>
+                    <AniLink fade to={`/category/${category.slug}`}>
                       {category.shortName}
-                    </Link>
+                    </AniLink>
                   </NavItem>
                 );
               })}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import { Container, Content } from './styles';
 
@@ -25,7 +26,9 @@ const ListSimilar: React.FC<Props> = ({ data }) => {
             <span>{content.created_at}</span>
             <p>{content.metaDescription}</p>
             <p>
-              <Link to={`/${content.slug}`}>Read More</Link>
+              <AniLink fade to={`/${content.slug}`}>
+                Read More
+              </AniLink>
             </p>
           </Content>
         );
